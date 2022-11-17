@@ -68,6 +68,7 @@ return packer.startup(function(use)
 
   -- Toggleterm 
   use { "akinsho/toggleterm.nvim", commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda" }
+  use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -84,6 +85,9 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+
+	-- Git
+	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

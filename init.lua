@@ -5,6 +5,7 @@ require "tofu.tofucommands"
 
 require "tofu.colorscheme"
 require "tofu.cmp"
+--require "tofu.lsp"
 
 require "tofu.telescope"
 require "tofu.nvim-tree"
@@ -18,5 +19,4 @@ require "tofu.gitsigns"
 
 require "tofu.alpha"
 require "tofu.whichkey"
--- test
 

@@ -41,3 +41,11 @@ local options = {
   for k, v in pairs(options) do
     vim.opt[k] = v
   end
+
+local colorscheme = "ferrum"
+
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not status_ok then
+  vim.notify("Color scheme didn't work")
+  return
+end

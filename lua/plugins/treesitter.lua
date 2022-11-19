@@ -1,5 +1,4 @@
 -- See :help nvim-treesitter-modules
-vim.notify("Yo somebody")
 require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,

@@ -1,7 +1,8 @@
 local servers = {
 	"sumneko_lua",
   "html",
-  "cssls"
+  "cssls",
+  "fsautocomplete"
 }
 
 local settings = {
@@ -13,7 +14,7 @@ local settings = {
 			package_uninstalled = "◍",
 		},
 	},
-	log_level = vim.log.levels.INFO,
+	log_level = vim.log.levels.DEBUG,
 	max_concurrent_installers = 4,
 }
 
@@ -98,6 +99,21 @@ require('mason-lspconfig').setup_handlers({
           completeFunctionCalls = true
         }
       }
+    })
+  end,
+  ['fsautocomplete'] = function()
+    vim.notify("Yo I'm setting up the FSHARP!")
+    lspconfig.fsautocomplete.setup({
+--        cmd = {
+--          { "fsautocomplete", "--background-service-enabled" },
+--          --{ "fsautocomplete", "--adaptive-lsp-server-enabled" }
+--        },
+--        filetypes = {
+--          "fsharp"
+--        },
+--        init_options = {
+--          AutomaticWorkspaceInit = true
+--        }
     })
   end,
   --['sumneko_lua'] = function()

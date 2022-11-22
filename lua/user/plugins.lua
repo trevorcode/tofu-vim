@@ -83,11 +83,11 @@ return packer.startup(function(use)
       }
 
   -- Code manipulation
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    config = function() pcall(require, 'plugins.treesitter') end,
-  }
-  use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  --use {
+  --  'nvim-treesitter/nvim-treesitter',
+  --  config = function() pcall(require, 'plugins.treesitter') end,
+ -- }
+ -- use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {
     'numToStr/Comment.nvim',
     config = function() pcall(require, 'plugins.comment') end,
@@ -117,7 +117,7 @@ return packer.startup(function(use)
 	use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
   use { "neovim/nvim-lspconfig", 
-        commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda",
+        commit = "ea5744f9243ec25a178a0bc403a4c8203ecc4f23",
         config = function () pcall(require, 'plugins.lsp') end
       } -- enable LSP
 

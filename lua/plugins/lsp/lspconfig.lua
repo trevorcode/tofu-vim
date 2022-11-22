@@ -54,7 +54,7 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-  virtual_text = false, -- disable virtual text
+  virtual_text = true,
   signs = {
     active = signs, -- show signs
   },
@@ -104,16 +104,21 @@ require('mason-lspconfig').setup_handlers({
   ['fsautocomplete'] = function()
     vim.notify("Yo I'm setting up the FSHARP!")
     lspconfig.fsautocomplete.setup({
---        cmd = {
---          { "fsautocomplete", "--background-service-enabled" },
---          --{ "fsautocomplete", "--adaptive-lsp-server-enabled" }
---        },
+        cmd = {
+          "fsautocomplete", "--adaptive-lsp-server-enabled", "--verbose"
+          --{ "fsautocomplete", "--adaptive-lsp-server-enabled" }
+        },
 --        filetypes = {
 --          "fsharp"
 --        },
---        init_options = {
---          AutomaticWorkspaceInit = true
---        }
+        init_options = {
+          AutomaticWorkspaceInit = true
+        },
+        settings = {
+          FSharp = {
+            ResolveNamespaces = true
+          }
+        }
     })
   end,
   --['sumneko_lua'] = function()

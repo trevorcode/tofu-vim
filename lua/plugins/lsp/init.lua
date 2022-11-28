@@ -5,4 +5,4 @@ if not status_ok then
 end
 
 require "plugins.lsp.lspconfig"
---require "tofu.lsp.null-ls"
+require "plugins.lsp.null_ls"

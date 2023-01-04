@@ -47,93 +47,95 @@ return packer.startup(function(use)
 
   -- Themeing
   use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
-  use {"lunarvim/colorschemes" }
+  use { "lunarvim/colorschemes" }
 
   --   use "lunarvim/darkplus.nvim"
 
   -- Bufferline - the top buffer tabs
-  use { "moll/vim-bbye"}
-  use { "akinsho/bufferline.nvim", 
-        commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4", 
-        config = function () pcall(require, 'plugins.bufferline') end
-      }
+  use { "moll/vim-bbye" }
+  use { "akinsho/bufferline.nvim",
+    commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4",
+    config = function() pcall(require, 'plugins.bufferline') end
+  }
 
   -- Lualine - the bottom line
-  use { "nvim-lualine/lualine.nvim", 
-        commit = "a52f078026b27694d2290e34efa61a6e4a690621",
-        config = function () pcall(require, 'plugins.lualine') end
-      }
+  use { "nvim-lualine/lualine.nvim",
+    commit = "a52f078026b27694d2290e34efa61a6e4a690621",
+    config = function() pcall(require, 'plugins.lualine') end
+  }
 
-  -- Nvim Tree 
-  use { "kyazdani42/nvim-tree.lua", 
-        commit = "7282f7de8aedf861fe0162a559fc2b214383c51c",
-        config = function () pcall(require, 'plugins.nvim-tree') end
-      }
+  -- Nvim Tree
+  use { "kyazdani42/nvim-tree.lua",
+    commit = "7282f7de8aedf861fe0162a559fc2b214383c51c",
+    config = function() pcall(require, 'plugins.nvim-tree') end
+  }
 
-	-- Telescope
-	use { "nvim-telescope/telescope.nvim", 
-        commit = "76ea9a898d3307244dce3573392dcf2cc38f340f",
-        config = function () pcall(require, 'plugins.telescope') end
-      }
+  -- Telescope
+  use { "nvim-telescope/telescope.nvim",
+    commit = "76ea9a898d3307244dce3573392dcf2cc38f340f",
+    config = function() pcall(require, 'plugins.telescope') end
+  }
 
-	-- Git
-	use { "lewis6991/gitsigns.nvim", 
-        commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2",
-        config = function () pcall(require, 'plugins.gitsigns') end
-      }
+  -- Git
+  use { "lewis6991/gitsigns.nvim",
+    commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2",
+    config = function() pcall(require, 'plugins.gitsigns') end
+  }
 
   -- Code manipulation
   --use {
   --  'nvim-treesitter/nvim-treesitter',
   --  config = function() pcall(require, 'plugins.treesitter') end,
- -- }
- -- use {'nvim-treesitter/nvim-treesitter-textobjects'}
+  -- }
+  -- use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {
     'numToStr/Comment.nvim',
     config = function() pcall(require, 'plugins.comment') end,
   }
-  use {'tpope/vim-surround'}
+  use { 'tpope/vim-surround' }
+  use { 'ggandor/leap.nvim',
+    config = function() pcall(require('leap').add_default_mappings()) end }
 
   -- Utilities
-  use { "goolord/alpha-nvim", 
-        commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31",
-        config = function () pcall(require, 'plugins.alpha') end
-      }
-  use {"folke/which-key.nvim",
-       config = function () pcall(require, 'plugins.whichkey') end
-      }
-  use { "akinsho/toggleterm.nvim", 
-        commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda",
-        config = function () pcall(require, 'plugins.toggleterm') end
-      }
-  use { "ahmedkhalf/project.nvim", 
-        commit = "628de7e433dd503e782831fe150bb750e56e55d6",
-        config = function () pcall(require, 'plugins.project') end
-      }
+  use { "goolord/alpha-nvim",
+    commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31",
+    config = function() pcall(require, 'plugins.alpha') end
+  }
+  use { "folke/which-key.nvim",
+    config = function() pcall(require, 'plugins.whichkey') end
+  }
+  use { "akinsho/toggleterm.nvim",
+    commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda",
+    config = function() pcall(require, 'plugins.toggleterm') end
+  }
+  use { "ahmedkhalf/project.nvim",
+    commit = "628de7e433dd503e782831fe150bb750e56e55d6",
+    config = function() pcall(require, 'plugins.project') end
+  }
 
   -- LSP
-  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
+  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" } -- simple to use language server installer
   use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
   use { "jose-elias-alvarez/null-ls.nvim",
-        commit = "c0c19f32b614b3921e17886c541c13a72748d450",
-        config = function () pcall(require, 'plugins.lsp.null_ls') end} -- for formatters and linters
+    commit = "c0c19f32b614b3921e17886c541c13a72748d450",
+    config = function() pcall(require, 'plugins.lsp.null_ls') end } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
-  use { "neovim/nvim-lspconfig", 
-        commit = "ea5744f9243ec25a178a0bc403a4c8203ecc4f23",
-        config = function () pcall(require, 'plugins.lsp') end
-      } -- enable LSP
+  use { "neovim/nvim-lspconfig",
+    commit = "ea5744f9243ec25a178a0bc403a4c8203ecc4f23",
+    config = function() pcall(require, 'plugins.lsp') end
+  } -- enable LSP
 
   use { "adelarsq/neofsharp.vim" }
 
-  -- Autocomplete 
-  use {"hrsh7th/nvim-cmp", -- The completion plugin
-       config = function () pcall(require, 'plugins.cmp') end
-      }
+  -- Autocomplete
+  use { "hrsh7th/nvim-cmp", -- The completion plugin
+    config = function() pcall(require, 'plugins.cmp') end
+  }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use {'hrsh7th/cmp-nvim-lsp'} -- lsp cmp
+  use { 'hrsh7th/cmp-nvim-lsp' } -- lsp cmp
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine

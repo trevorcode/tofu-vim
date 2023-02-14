@@ -6,3 +6,5 @@ end
 
 require "plugins.lsp.lspconfig"
 require "plugins.lsp.null_ls"
+
+require('fidget').setup()

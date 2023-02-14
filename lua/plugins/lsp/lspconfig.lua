@@ -1,5 +1,5 @@
 local servers = {
-	"sumneko_lua",
+	-- "lua-language-server",
   "html",
   "cssls",
   "fsautocomplete"
@@ -102,7 +102,6 @@ require('mason-lspconfig').setup_handlers({
     })
   end,
   ['fsautocomplete'] = function()
-    vim.notify("Yo I'm setting up the FSHARP!")
     lspconfig.fsautocomplete.setup({
         cmd = {
           "fsautocomplete", "--adaptive-lsp-server-enabled", "--verbose"
@@ -121,7 +120,4 @@ require('mason-lspconfig').setup_handlers({
         }
     })
   end,
-  --['sumneko_lua'] = function()
-  --  require('plugins.lsp.sumneko_lua')
-  --end
 })

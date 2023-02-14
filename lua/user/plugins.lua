@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  -- use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Themeing
@@ -81,7 +81,6 @@ return packer.startup(function(use)
     commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2",
     config = function() pcall(require, 'plugins.gitsigns') end
   }
-
   -- Code manipulation
   --use {
   --  'nvim-treesitter/nvim-treesitter',
@@ -90,11 +89,10 @@ return packer.startup(function(use)
   -- use {'nvim-treesitter/nvim-treesitter-textobjects'}
   use {
     'numToStr/Comment.nvim',
-    config = function() pcall(require, 'plugins.comment') end,
+    config = function() 
+      require('Comment').setup({})
+    end,
   }
-  use { 'tpope/vim-surround' }
-  use { 'ggandor/leap.nvim',
-    config = function() pcall(require('leap').add_default_mappings()) end }
 
   -- Utilities
   use { "goolord/alpha-nvim",
@@ -112,36 +110,48 @@ return packer.startup(function(use)
     commit = "628de7e433dd503e782831fe150bb750e56e55d6",
     config = function() pcall(require, 'plugins.project') end
   }
+  use { 'tpope/vim-surround' }
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
   -- LSP
-  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" } -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
   use { "jose-elias-alvarez/null-ls.nvim",
-    commit = "c0c19f32b614b3921e17886c541c13a72748d450",
     config = function() pcall(require, 'plugins.lsp.null_ls') end } -- for formatters and linters
-  use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+  -- use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
   use { "neovim/nvim-lspconfig",
-    commit = "ea5744f9243ec25a178a0bc403a4c8203ecc4f23",
-    config = function() pcall(require, 'plugins.lsp') end
+    config = function() pcall(require, 'plugins.lsp') end,
+    requires = {
+      'j-hui/fidget.nvim',
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim"
+    }
   } -- enable LSP
 
-  use { "adelarsq/neofsharp.vim" }
+  -- use { "adelarsq/neofsharp.vim" }
+
+  use { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
+
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
 
   -- Autocomplete
   use { "hrsh7th/nvim-cmp", -- The completion plugin
-    config = function() pcall(require, 'plugins.cmp') end
+    config = function() pcall(require, 'plugins.cmp') end,
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      "hrsh7th/cmp-buffer", -- buffer completions
+      "hrsh7th/cmp-path", -- path completions
+      "hrsh7th/cmp-cmdline", -- cmdline completions
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip'
+    },
   }
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use { 'hrsh7th/cmp-nvim-lsp' } -- lsp cmp
-
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

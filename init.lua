@@ -5,7 +5,8 @@ end
 
 if vim.g.vscode then
   -- VSCode extension
-  load('user.vscode')
+  load('user.vscode.init')
+  -- load('user.vscode')
 else
   -- ordinary Neovim
   load('user.options')

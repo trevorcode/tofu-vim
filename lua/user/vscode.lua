@@ -1,3 +1,5 @@
+-- this file may not be in use anymore 
+
 local fn = vim.fn
 
 -- Automatically install packer

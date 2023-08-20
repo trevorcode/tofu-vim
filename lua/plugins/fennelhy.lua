@@ -1,6 +1,5 @@
 return {
-  -- { 'jaawerth/fennel.vim' },
-  { 'Olical/nvim-local-fennel' },
-  { 'Olical/aniseed' },
+  { 'Olical/nfnl', ft = "fennel" },
+  { 'jaawerth/fennel.vim' },
   { 'hylang/vim-hy' }
 }

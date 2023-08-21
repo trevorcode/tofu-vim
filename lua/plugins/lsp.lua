@@ -51,7 +51,23 @@ return {
           on_attach = on_attach,
         }
       end,
+
+      ["fennel_language_server"] = function ()
+        require("lspconfig").fennel_language_server.setup{
+          filetypes = {'fennel'},
+          single_file_support = true,
+          settings = {
+            fennel = {
+              diagnostics = {
+                globals = {'vim'},
+              },
+            },
+          },
+        }
+      end
     }
+
+
 
   end
 }

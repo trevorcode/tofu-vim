@@ -18,4 +18,6 @@ return {
       vim.cmd [[ colorscheme everforest ]]
     end
   }
+  -- nvim-juliana
+  -- Another really good one to maybe pickup
 }

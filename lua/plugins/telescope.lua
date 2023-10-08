@@ -8,9 +8,9 @@ return {
   },
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>",          desc = "Find in files" },
-    { "<leader>fF", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text" },
-    { "<leader>fw", "<cmd>Telescope buffers<cr>",             desc = "Find Text" },
-    { "<leader>fp", "<cmd>Telescope projects<cr>",             desc = "Find Projects" }
+    { "<leader>fF", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find text" },
+    { "<leader>fw", "<cmd>Telescope buffers<cr>",             desc = "Find buffers" },
+    { "<leader>fp", "<cmd>Telescope projects<cr>",             desc = "Find projects" }
   },
   config = function ()
     require("project_nvim").setup {}

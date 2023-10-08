@@ -7,6 +7,6 @@ return {
     'tpope/vim-surround'
   },
   init = function ()
-    vim.cmd([[ let g:sexp_filetypes = 'clojure,scheme,lisp,timl,hy,fennel' ]])
+    vim.cmd([[ let g:sexp_filetypes = 'clojure,scheme,lisp,timl,hy,fennel,janet' ]])
   end
 }

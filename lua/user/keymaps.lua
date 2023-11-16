@@ -8,6 +8,9 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Exit insert mode
+keymap("i", "jk", "<esc>", opts)
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
